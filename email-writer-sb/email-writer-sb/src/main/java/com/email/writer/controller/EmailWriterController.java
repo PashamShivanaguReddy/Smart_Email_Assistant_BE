@@ -18,25 +18,15 @@ import com.email.writer.service.EmailGeneratorService;
 public class EmailWriterController {
 
     private final EmailGeneratorService service;
-
-    //@PostMapping("/generate")
-    // public ResponseEntity<String> generateEmail(@RequestBody Emailrequest emailrequest){
-
-    //    String response = service.GenerateEmailReply(emailrequest);
-
-    //    return ResponseEntity.ok(response);
-    //}
-
-
     public EmailWriterController(EmailGeneratorService service) {
         this.service = service;
     }
 
-    // Your existing method that was failing at line 25:
-    // The 'service' reference is now guaranteed non-null here.
+    
     @PostMapping("/generate")
     public ResponseEntity<String> generateEmail(@RequestBody Emailrequest emailrequest) {
         String response = this.service.GenerateEmailReply(emailrequest);
         return ResponseEntity.ok(response);
     }
+
 }
